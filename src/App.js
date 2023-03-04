@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import AddSong from "./features/songs/AddSong";
+import EditSong from "./features/songs/EditSong";
+import Report from "./features/songs/report";
+import SongList from "./features/songs/SongList";
+import styled from "styled-components";
+
+const Title = styled.h1`
+  font-size: 1.5em;
+  text-align: center;
+  color: palevioletred;
+`;
+
+// Create a Wrapper component that'll render a <section> tag with some styles
+const Wrapper = styled.section`
+  padding: 4em;
+  background: #dfe2e7;
+  min-height: 35em;
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper>
+      <Title>Full Stuck Test Project</Title>
+      <Routes>
+        <Route path="/" element={<SongList />} />
+        <Route path="/add-song" element={<AddSong />} />
+        <Route path="/edit-song/:id" element={<EditSong />} />
+        <Route path="/report" element={<Report />} />
+      </Routes>
+    </Wrapper>
   );
 }
 
