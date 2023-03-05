@@ -21,21 +21,21 @@ const Wrapper2 = styled.section`
 const AddSong = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [values, setValues] = useState({
+  const [values, setValues] = useState({ 
     Title : '',
     Artist : '',
     Album : '',
-    Genre: ''
+    Genere: ''
   });
 
   const handleAddSong = () => {
-    setValues({  Title : '', Artist : '', Album : '', Genre: ''});
+    setValues({  Title : '', Artist : '', Album : '', Genere: ''});
     dispatch(addSong({
       id: uuidv4(),
       Title : values.Title,
       Artist : values.Artist,
       Album : values.Album,
-      Genre: values.Genre
+      Genere: values.Genere
     }));
     navigate('/');
   }
@@ -62,10 +62,10 @@ const AddSong = () => {
         inputProps={{ type: 'text', placeholder: 'Album' }}
       />
        <TextField
-        label="Genre"
+        label="Genere"
         value={values.email}
-        onChange={(e) => setValues({ ...values, Genre: e.target.value })}
-        inputProps={{ type: 'Genre', placeholder: 'Genre' }}
+        onChange={(e) => setValues({ ...values, Genere: e.target.value })}
+        inputProps={{ type: 'Genere', placeholder: 'Genere' }}
       /> 
       <Button onClick={handleAddSong}>Submit</Button>
       </Wrapper2>

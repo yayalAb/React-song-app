@@ -13,7 +13,7 @@ const Title = styled.h1`
 
 // Create a Wrapper component that'll render a <section> tag with some styles
 const Wrapper = styled.section`
-  padding: 4em;
+  padding: 0.5em;
   background: #dfe2e7;
   min-height: 35em;
 `;
@@ -21,7 +21,8 @@ const Wrapper = styled.section`
 function App() {
   return (
     <Wrapper>
-      <Title>Full Stuck Test Project</Title>
+      <Title> Addis Soft</Title>
+      <Title>Full Stuck Developer Test Project</Title>
       <Routes>
         <Route path="/" element={<SongList />} />
         <Route path="/add-song" element={<AddSong />} />

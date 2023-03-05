@@ -22,22 +22,22 @@ const EditSong = () => {
   const songs = useSelector(store => store.songs);
   const navigate = useNavigate();
   const existingSong = songs.filter(song => song.id === params.id);
-  const {  Title, Artist, Album , Genre } = existingSong[0];
+  const {  Title, Artist, Album , Genere } = existingSong[0];
   const [values, setValues] = useState({
     Title ,
     Artist,
     Album ,
-    Genre
+    Genere
   });
 
   const handleEditSong = () => {
-    setValues({  Title : '', Artist : '', Album : '', Genre: '' });
+    setValues({  Title : '', Artist : '', Album : '', Genere: '' });
     dispatch(editSong({
       id: params.id,
       Title : values.Title,
       Artist : values.Artist,
       Album : values.Album,
-      Genre: values.Genre
+      Genere: values.Genere
     }));
     navigate('/');
   }
@@ -64,10 +64,10 @@ const EditSong = () => {
           inputProps={{ type: 'text', placeholder: 'Album' }}
         />
         <TextField
-          label="Genre"
-          value={values.Genre}
-          onChange={(e) => setValues({ ...values, Genre: e.target.value })}
-          inputProps={{ type: 'text', placeholder: 'Genre' }}
+          label="Genere"
+          value={values.Genere}
+          onChange={(e) => setValues({ ...values, Genere: e.target.value })}
+          inputProps={{ type: 'text', placeholder: 'Genere' }}
         />
       <Button onClick={handleEditSong}>Edit</Button>
       </Wrapper2>
