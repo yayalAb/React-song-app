@@ -13,10 +13,11 @@ const Wrapper = styled.section`
   border-radius: 10px;
   background: #f6f7fa;
 `;
+const Wrapper2 = styled.section`
+    margin-left: 20%;
+`;
 
-const Wrapper2=styled.section`
-        display:flex;
-`
+
 const AddSong = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -53,8 +54,7 @@ const AddSong = () => {
         value={values.email}
         onChange={(e) => setValues({ ...values, Artist: e.target.value })}
         inputProps={{ type: 'text', placeholder: 'Artist' }}
-      /></Wrapper2>
-      <Wrapper2>
+      />
       <TextField
         label="Album"
         value={values.email}
@@ -66,8 +66,9 @@ const AddSong = () => {
         value={values.email}
         onChange={(e) => setValues({ ...values, Genre: e.target.value })}
         inputProps={{ type: 'Genre', placeholder: 'Genre' }}
-      /> </Wrapper2>
+      /> 
       <Button onClick={handleAddSong}>Submit</Button>
+      </Wrapper2>
     </Wrapper>
     
   )

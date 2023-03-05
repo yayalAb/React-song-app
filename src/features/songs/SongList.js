@@ -11,9 +11,11 @@ const Wrapper = styled.section`
   background: #f6f7fa;
 `;
 
-const Wrapper2=styled.section`
-        display:flex;
-        min-width:20em;`
+const Table=styled.table`
+    padding: 2em;
+    width: 100%;
+
+    `
 
 
 const SongList = () => {
@@ -23,31 +25,35 @@ const SongList = () => {
   const handleRemoveSong = (id) => {
     dispatch(deleteSong({ id }));
   }
-  const renderCard = () => songs.map(song => (
-      <Wrapper2>
-      <table>
-        <tr>
-          <td>{song.Title}</td>
-          <td>{song.Artist}</td>
-          <td>{song.Album}</td>
-          <td>{song.Genre}</td>
-        </tr>
-      </table>
-      <div className="flex gap-4">
-        <Link to={`edit-song/${song.id}`}>
-          <button>
-            Edit
-          </button>
-        </Link>
-        <button
-          onClick={() => handleRemoveSong(song.id)}
-        >
-          Delete
-        </button>
-      </div>
-    </Wrapper2>
-  ))
-
+  const renderCard = () =>(
+  
+    <Wrapper>
+  <table>
+    <thead>
+      <th>Title</th>
+      <th>Artist</th>
+      <th>Album</th>
+      <th>Genre</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      { songs.map(song => (
+          <tr>
+            <td>{song.Title}</td>
+            <td>{song.Artist}</td>
+            <td>{song.Album}</td>
+            <td>{song.Genre}</td>
+            <td>
+              <Link to={`edit-song/${song.id}`}><Button> Edit </Button></Link>
+              <Button onClick={() => handleRemoveSong(song.id)} > Delete</Button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table> 
+    </Wrapper>
+  )
+    
   return (
     <div>
       <Link to="/add-song"><Button>Add Song</Button></Link> 
@@ -60,3 +66,6 @@ const SongList = () => {
 }
 
 export default SongList
+
+
+ 

@@ -20,21 +20,24 @@ const Input = styled.input`
   color: gray;
   border: solid gray 1px;
   border-radius: 5px;
-  min-width:50%;
+  min-width:60%;
   min-height:2.5em;
   font-size:18;
 `;
 
 const TextField = ({ label, inputProps, onChange, value }) => {
   return (
-    <Wrapper>
+    // <Wrapper>
+     <div>
       <Label>{label}</Label>
-      <Input
-        {...inputProps}
-        onChange={onChange}
-        value={value}
-      />
-    </Wrapper>
+        <Input
+          {...inputProps}
+          onChange={onChange}
+          value={value}
+        />
+     </div>
+
+    // </Wrapper>
   )
 }
 export default TextField

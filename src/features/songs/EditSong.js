@@ -12,11 +12,9 @@ const Wrapper = styled.section`
   border-radius: 10px;
   background: #f6f7fa;
 `;
-
-const Wrapper2=styled.section`
-        display:flex;
-        min-width:20em;
-`
+const Wrapper2 = styled.section`
+    margin-left: 20%;
+`;
 
 const EditSong = () => {
   const params = useParams();
@@ -59,8 +57,6 @@ const EditSong = () => {
           onChange={(e) => setValues({ ...values, Title: e.target.value })}
           inputProps={{ type: 'text', placeholder: 'Song Title' }}
         />
-      </Wrapper2>
-      <Wrapper2>
         <TextField
           label="Album"
           value={values.Album}
@@ -73,8 +69,8 @@ const EditSong = () => {
           onChange={(e) => setValues({ ...values, Genre: e.target.value })}
           inputProps={{ type: 'text', placeholder: 'Genre' }}
         />
-      </Wrapper2>
       <Button onClick={handleEditSong}>Edit</Button>
+      </Wrapper2>
     </Wrapper>
   )
 }
