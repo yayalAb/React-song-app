@@ -25,7 +25,7 @@ const songSlice = createSlice({
     },
     editSong: (state, action) => {
       const { id, Title , Artist , Album , Genre } = action.payload;
-      const existingSong = state.find(song => song.id === id);
+      const existingSong = state.songs.find(song => song.id === id);
       if(existingSong) {
         existingSong.Title = Title;
         existingSong.Artist=Artist;
@@ -35,9 +35,9 @@ const songSlice = createSlice({
     },
     deleteSong: (state, action) => {
       const { id } = action.payload;
-      const existingSong = state.find(song => song.id === id);
+      const existingSong = state.songs.find(song => song.id === id);
       if(existingSong) {
-        return state.filter(song => song.id !== id);
+        return state.songs.filter(song => song.id !== id);
       }
     },
 

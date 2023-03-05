@@ -19,7 +19,8 @@ const Wrapper2 = styled.section`
 const EditSong = () => {
   const params = useParams();
   const dispatch = useDispatch();
-  const songs = useSelector(store => store.songs);
+  const songs = useSelector(store => store.songs.songs);
+  console.log("state : ",songs)
   const navigate = useNavigate();
   const existingSong = songs.filter(song => song.id === params.id);
   const {  Title, Artist, Album , Genere } = existingSong[0];

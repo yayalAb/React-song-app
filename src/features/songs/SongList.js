@@ -30,8 +30,8 @@ const SongList = () => {
     useEffect(()=>{
       dispatch(getSongsFetch());
     }, [dispatch]);
-    const songs =  useSelector( state=>state.songs.songs);
-    console.log("songs :",songs)
+    const songs =  useSelector( state=>state.songs);
+    console.log("songs1 :",songs)
      
 
 
@@ -51,7 +51,7 @@ const SongList = () => {
         <td>Genere</td>
         <td>Action</td>
       </tr>
-      { songs.map(song => (
+      { songs.songs.map(song => (
           <tr>
             <td>{song.Title}</td>
             <td>{song.Artist}</td>
@@ -73,7 +73,7 @@ const SongList = () => {
       <Link to="/add-song"><Button>Add Song</Button></Link> 
       <Link to="/report"><Button>Statistic</Button></Link>
       <Wrapper>
-        {songs.length ? renderCard() :<p>No song</p>}
+        {songs?.songs.length ? renderCard() :<p>No song</p>}
       </Wrapper>
     </div>
   )
