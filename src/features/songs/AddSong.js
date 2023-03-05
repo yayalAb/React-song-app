@@ -39,6 +39,10 @@ const AddSong = () => {
     }));
     navigate('/');
   }
+  
+  const backHandler=()=>{
+    navigate('/');
+  }
 
   return (
     <Wrapper>
@@ -68,6 +72,7 @@ const AddSong = () => {
         inputProps={{ type: 'Genere', placeholder: 'Genere' }}
       /> 
       <Button onClick={handleAddSong}>Submit</Button>
+      <Button onClick={backHandler}>Back</Button>
       </Wrapper2>
     </Wrapper>
     

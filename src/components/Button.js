@@ -1,11 +1,12 @@
 import styled from "styled-components";
 const ButtonStyl = styled.button`
-        background: indigo;
+        background: rgb(7, 7, 41);
         color:  white ;
         font-size: 1em;
         margin: 1em;
+        border:none;
         padding: 0.25em 1em;
-        border-radius: 3px;
+        radius: 3px;
       `;
 
 const Button = ({ onClick, children }) => {
