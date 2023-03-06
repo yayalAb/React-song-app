@@ -21,7 +21,7 @@ const Wrapper = styled.section`
 function App() {
   return (
     <Wrapper>
-      <Title> Addis Soft</Title>
+      <Title> Addis Software</Title>
       <Title>Full Stuck Developer Test Project</Title>
       <Routes>
         <Route path="/" element={<SongList />} />
@@ -32,5 +32,4 @@ function App() {
     </Wrapper>
   );
 }
-
 export default App;
