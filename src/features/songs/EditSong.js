@@ -23,51 +23,50 @@ const EditSong = () => {
   console.log("state : ",songs)
   const navigate = useNavigate();
   const existingSong = songs.filter(song => song.id === params.id);
-  const {  Title, Artist, Album , Genere } = existingSong[0];
+  const {  title, artist, album , genere } = existingSong[0];
   const [values, setValues] = useState({
-    Title ,
-    Artist,
-    Album ,
-    Genere
+     title, 
+     artist,
+     album , 
+     genere
   });
 
   const handleEditSong = () => {
-    setValues({  Title : '', Artist : '', Album : '', Genere: '' });
+    setValues({  title : '', artist : '', album : '', genere: '' });
     dispatch(editSong({
       id: params.id,
-      Title : values.Title,
-      Artist : values.Artist,
-      Album : values.Album,
-      Genere: values.Genere
+      title : values.title,
+      artist : values.artist,
+      album : values.album,
+      genere: values.genere
     }));
     navigate('/');
   }
-
   return (
     <Wrapper>
       <Wrapper2>
         <TextField
           label="Artist"
-          value={values.Artist}
-          onChange={(e) => setValues({ ...values, Artist: e.target.value })}
+          value={values.artist}
+          onChange={(e) => setValues({ ...values, artist: e.target.value })}
           inputProps={{ type: 'text', placeholder: 'Artist' }}
         />
         <TextField
           label="Title"
-          value={values.Title}
-          onChange={(e) => setValues({ ...values, Title: e.target.value })}
+          value={values.title}
+          onChange={(e) => setValues({ ...values, title: e.target.value })}
           inputProps={{ type: 'text', placeholder: 'Song Title' }}
         />
         <TextField
           label="Album"
-          value={values.Album}
-          onChange={(e) => setValues({ ...values, Album: e.target.value })}
+          value={values.album}
+          onChange={(e) => setValues({ ...values, album: e.target.value })}
           inputProps={{ type: 'text', placeholder: 'Album' }}
         />
         <TextField
           label="Genere"
-          value={values.Genere}
-          onChange={(e) => setValues({ ...values, Genere: e.target.value })}
+          value={values.genere}
+          onChange={(e) => setValues({ ...values, genere: e.target.value })}
           inputProps={{ type: 'text', placeholder: 'Genere' }}
         />
       <Button onClick={handleEditSong}>Edit</Button>

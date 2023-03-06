@@ -13,32 +13,55 @@ const songSlice = createSlice({
       state.isloading=true;
     },
     getSongsSucess:(state, action) => {
+      console.log()
       state.songs=action.payload;
       state.isloading=false;
     },
     getSongsFiluere:(state)=>{
       state.isloading=false;
-
     },
-    addSong: (state, action) => {
+    getReportFetch:(state)=>{
+      state.isloading=true;
+    },
+    getReportSucess:(state, action) => {
+      console.log()
+      state.songs=action.payload;
+      state.isloading=false;
+    },
+    getReportFiluere:(state)=>{
+      state.isloading=false;
+    },
+    addSong:(state)=>{
+      state.isloading=true;
+    },
+    addSongSucess:(state, action) => {
       state.songs.push(action.payload);
+      state.isloading=false;
+    },
+    addSongFiluere:(state)=>{
+      state.isloading=false;
     },
     editSong: (state, action) => {
-      const { id, Title , Artist , Album , Genre } = action.payload;
-      const existingSong = state.songs.find(song => song.id === id);
-      if(existingSong) {
-        existingSong.Title = Title;
-        existingSong.Artist=Artist;
-        existingSong.Album=Album;
-        existingSong.Genre = Genre;
-      }
+      state.isloading=true;
+      
     },
+     editSongSucess:(state, action) => {
+      state.songs=action.payload;
+      state.isloading=false;
+    },
+     editSongFiluere:(state)=>{
+      state.isloading=false;
+    },
+
     deleteSong: (state, action) => {
-      const { id } = action.payload;
-      const existingSong = state.songs.find(song => song.id === id);
-      if(existingSong) {
-        return state.songs.filter(song => song.id !== id);
-      }
+       state.isloading=false;
+    },
+     deleteSongSucess:(state, action) => {
+      state.songs=action.payload;
+      state.isloading=true;
+    },
+     deleteSongFiluere:(state)=>{
+      state.isloading=false;
     },
 
     CountsSong: (state, action) => {
@@ -51,5 +74,8 @@ const songSlice = createSlice({
   }
 });
 
-export const {getSongsFetch, getSongsSucess, getSongsFiluere, addSong, editSong, deleteSong,CountsSong } = songSlice.actions;
+export const {getSongsFetch, getSongsSucess, getSongsFiluere, addSong ,addSongSucess,addSongFiluere, 
+  editSong,  editSongSucess,  editSongFiluere,
+   deleteSong,deleteSongSucess,  deleteSongFiluere,CountsSong ,
+  getReportSucess,getReportFiluere,getReportFetch} = songSlice.actions;
 export default songSlice.reducer;

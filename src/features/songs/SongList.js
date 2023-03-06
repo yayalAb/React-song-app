@@ -20,22 +20,11 @@ const Table=styled.table`
 
 
 const SongList = () => {
-  // const dispatch = useDispatch();
-  // const songs =  useSelector(
-  //   store => store.songs);
-
-    
-
     const dispatch = useDispatch();
     useEffect(()=>{
       dispatch(getSongsFetch());
     }, [dispatch]);
-    const songs =  useSelector( state=>state.songs);
-    console.log("songs1 :",songs)
-     
-
-
-
+  const songs =  useSelector( state=>state.songs);     
   const handleRemoveSong = (id) => {
     dispatch(deleteSong({ id }));
   }
@@ -53,10 +42,10 @@ const SongList = () => {
       </tr>
       { songs.songs.map(song => (
           <tr>
-            <td>{song.Title}</td>
-            <td>{song.Artist}</td>
-            <td>{song.Album}</td>
-            <td>{song.Genere}</td>
+            <td>{song.title}</td>
+            <td>{song.artist}</td>
+            <td>{song.album}</td>
+            <td>{song.genere}</td>
             <td>
               <Link to={`edit-song/${song.id}`}><Button> Edit </Button></Link>
               <Button onClick={() => handleRemoveSong(song.id)} > Delete</Button>
