@@ -3,6 +3,9 @@ import { getSongsSucess,getSongsFiluere,
   getReportSucess,getReportFiluere  ,addSongSucess,addSongFiluere,
     editSongSucess,  editSongFiluere, deleteSongSucess,  deleteSongFiluere } from "./songSlice";
 
+    const header = new Headers();
+    header.append('Access-Control-Allow-Origin', '*');   
+    header.append('Content-Type', 'application/json; charset=utf-8');   
 
 function* FetchSongs() {
    
@@ -32,8 +35,13 @@ function* FetchSongs() {
       const songs = yield call(()=>fetch('http://localhost:8080/api/songs',
       {
         method: 'POST',
-        body:JSON.stringify(JSON.stringify(action.payload))
+        body:JSON.stringify(action.payload),
+        headers:{
+          Accept: 'application/json',
+         'Content-Type': 'application/json',
+          }
       }
+
       ));
       const formatedSongs=yield songs.json();
       yield put(addSongSucess(formatedSongs));
@@ -44,11 +52,16 @@ function* FetchSongs() {
 
 
   function* EditSong(action) {
+    console.log("edit song is called",action.payload.id)
     try {
-      const songs = yield call(()=>fetch('http://localhost:8080/api/songs',action.payload.id,
+      const songs = yield call(()=>fetch('http://localhost:8080/api/songs/'+action.payload.id,
       {
         method: 'PUT',
-        body:JSON.stringify(JSON.stringify(action.payload))
+        body:JSON.stringify(action.payload),
+        headers:{
+          Accept: 'application/json',
+         'Content-Type': 'application/json',
+          }
       }
       ));
       const formatedSongs=yield songs.json();
@@ -63,7 +76,11 @@ function* FetchSongs() {
       const songs = yield call(()=>fetch('http://localhost:8080/api/songs/'+action.payload.id,
       {
         method: 'DELETE',
-        // body:JSON.stringify(JSON.stringify(action.payload))
+        body:JSON.stringify(action.payload),
+        headers:{
+          Accept: 'application/json',
+         'Content-Type': 'application/json',
+          }
       }
       ));
       const formatedSongs=yield songs.json();
