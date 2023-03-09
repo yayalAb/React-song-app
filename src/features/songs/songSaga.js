@@ -3,9 +3,6 @@ import { getSongsSucess,getSongsFiluere,
   getReportSucess,getReportFiluere  ,addSongSucess,addSongFiluere,
     editSongSucess,  editSongFiluere, deleteSongSucess,  deleteSongFiluere } from "./songSlice";
 
-    const header = new Headers();
-    header.append('Access-Control-Allow-Origin', '*');   
-    header.append('Content-Type', 'application/json; charset=utf-8');   
 
 function* FetchSongs() {
    
@@ -72,6 +69,8 @@ function* FetchSongs() {
   }
 
   function* deleteSong(action) {
+   
+    const id=action.payload.id;
     try {
       const songs = yield call(()=>fetch('http://localhost:8080/api/songs/'+action.payload.id,
       {
@@ -83,7 +82,8 @@ function* FetchSongs() {
           }
       }
       ));
-      const formatedSongs=yield songs.json();
+      const songslist = yield call(()=>fetch('http://localhost:8080/api/songs'));
+      const formatedSongs=yield songslist.json();
       yield put(deleteSongSucess(formatedSongs));
     } catch (e) {
       yield put( deleteSongFiluere("error occered"));

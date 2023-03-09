@@ -43,7 +43,6 @@ const AddSong = () => {
   const backHandler=()=>{
     navigate('/');
   }
-
   return (
     <Wrapper>
       <Wrapper2> 

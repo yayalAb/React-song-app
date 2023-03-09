@@ -58,8 +58,8 @@ const songSlice = createSlice({
     },
      deleteSongSucess:(state, action) => {
       state.songs=action.payload;
-      state.isloading=true;
-    },
+      state.isloading=false;
+  },
      deleteSongFiluere:(state)=>{
       state.isloading=false;
     },
