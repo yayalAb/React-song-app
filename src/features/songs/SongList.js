@@ -71,12 +71,12 @@ const SongList = () => {
        
       <Link to="/add-song"><Button>Add Song</Button></Link> 
       <Link to="/report"><Button>Statistic</Button></Link>
-      <TextField
+      {/* <TextField
         label="Genere"
         value={values.genere}
         onChange={(e) => setValues({ ...values, genere: e.target.value })}
         inputProps={{ type: 'Genere', placeholder: 'Genere' }}
-      /> 
+      />  */}
       <Wrapper>
         {songs?.songs.length ? renderCard() :<p>No song</p>}
       </Wrapper>
